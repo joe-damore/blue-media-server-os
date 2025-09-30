@@ -25,6 +25,13 @@ dnf5 -y install \
   fail2ban-firewalld \
   podman-compose
 
+dnf5 -y reinstall shadow-utils
+
+useradd podman
+echo podman:10000:5000 > /etc/subuid
+echo podman:10000:5000 > /etc/subgid
+
+
 systemctl enable podman.socket
 systemctl enable cockpit.socket
 systemctl enable firewalld
