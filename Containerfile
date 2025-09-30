@@ -5,6 +5,12 @@ ARG BASE_IMAGE_RESOLVED="ghcr.io/ublue-os/${BASE_IMAGE_NAME}-${BASE_IMAGE_VARIAN
 
 FROM ${BASE_IMAGE_RESOLVED}:${BASE_IMAGE_FEDORA_MAJOR_VERSION} AS base
 
+VOLUME /var/lib/containers
+VOLUME /home/podman/.local/share/containers
+
+ADD https://raw.githubusercontent.com/containers/libpod/master/contrib/podmanimage/stable/containers.conf /etc/containers/containers.conf
+ADD https://raw.githubusercontent.com/containers/libpod/master/contrib/podmanimage/stable/podman-containers.conf /home/podman/.config/containers/containers.conf
+
 COPY /build /tmp/build
 
 RUN mkdir -p /var/lib/alternatives && \
