@@ -23,6 +23,7 @@ dnf5 -y install \
   container-selinux \
   fail2ban \
   fail2ban-firewalld \
+  podman \
   podman-compose
 
 dnf5 -y reinstall shadow-utils
