@@ -23,7 +23,10 @@ dnf5 -y install \
   container-selinux \
   fail2ban \
   fail2ban-firewalld \
+  fuse-overlayfs \
   podman-compose
+
+dnf5 -y reinstall shadow-utils
 
 systemctl enable podman.socket
 systemctl enable cockpit.socket
