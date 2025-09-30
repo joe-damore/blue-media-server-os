@@ -30,11 +30,11 @@ dnf5 -y reinstall shadow-utils
 
 echo podman:10000:5000 > /etc/subuid
 echo podman:10000:5000 > /etc/subgid
+echo root:10000:5000 > /etc/subuid
+echo root:10000:5000 > /etc/subgid
 
 cat /etc/subuid
 cat /etc/subgid
-
-echo "$USER"
 
 podman info
 
