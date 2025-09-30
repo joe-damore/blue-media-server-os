@@ -31,3 +31,5 @@ systemctl enable firewalld
 
 # Add firewall rule to allow access to services
 firewall-offline-cmd --add-service=cockpit
+
+/tmp/build/images/pull-images.sh
