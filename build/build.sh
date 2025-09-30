@@ -29,7 +29,5 @@ systemctl enable podman.socket
 systemctl enable cockpit.socket
 systemctl enable firewalld
 
-podman save -o plex.tar docker.io/linuxserver/plex:latest
-
 # Add firewall rule to allow access to services
 firewall-offline-cmd --add-service=cockpit
