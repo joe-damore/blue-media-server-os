@@ -28,10 +28,10 @@ dnf5 -y install \
 
 dnf5 -y reinstall shadow-utils
 
-useradd podman
 echo podman:10000:5000 > /etc/subuid
 echo podman:10000:5000 > /etc/subgid
 
+useradd media
 
 systemctl enable podman.socket
 systemctl enable cockpit.socket

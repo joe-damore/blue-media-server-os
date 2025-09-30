@@ -6,7 +6,7 @@ ARG BASE_IMAGE_RESOLVED="ghcr.io/ublue-os/${BASE_IMAGE_NAME}-${BASE_IMAGE_VARIAN
 FROM ${BASE_IMAGE_RESOLVED}:${BASE_IMAGE_FEDORA_MAJOR_VERSION} AS base
 
 VOLUME /var/lib/containers
-VOLUME /home/podman/.local/share/containers
+VOLUME /var/home/podman/.local/share/containers
 
 COPY /build /tmp/build
 
@@ -14,5 +14,8 @@ RUN mkdir -p /var/lib/alternatives && \
     /tmp/build/build.sh && \
     ostree container commit
 
-USER podman
+USER media
 RUN podman pull docker.io/linuxserver/plex:latest
+
+USER root
+RUN ostree container commit
