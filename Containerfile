@@ -14,8 +14,6 @@ RUN mkdir -p /var/lib/alternatives && \
     /tmp/build/build.sh && \
     ostree container commit
 
-USER media
 RUN podman pull docker.io/linuxserver/plex:latest
 
-USER root
 RUN ostree container commit
