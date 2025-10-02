@@ -33,14 +33,12 @@ echo podman:10000:5000 > /etc/subgid
 echo root:10000:5000 > /etc/subuid
 echo root:10000:5000 > /etc/subgid
 
-cat /etc/subuid
-cat /etc/subgid
-
-podman info
-
 systemctl enable podman.socket
 systemctl enable cockpit.socket
 systemctl enable firewalld
 
 # Add firewall rule to allow access to services
 firewall-offline-cmd --add-service=cockpit
+
+podman pull docker.io/linuxserver/plex:latest
+podman pull docker.io/linuxserver/jellyfin:latest

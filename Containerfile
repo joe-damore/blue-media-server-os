@@ -13,7 +13,3 @@ COPY /build /tmp/build
 RUN mkdir -p /var/lib/alternatives && \
     /tmp/build/build.sh && \
     ostree container commit
-
-RUN podman pull docker.io/linuxserver/plex:latest
-
-RUN ostree container commit
