@@ -42,5 +42,5 @@ systemctl enable firewalld
 # Add firewall rule to allow access to services
 firewall-offline-cmd --add-service=cockpit
 
-podman pull docker.io/linuxserver/plex:latest
-podman pull docker.io/linuxserver/jellyfin:latest
+podman pull --root /usr/lib/mediaserver/storage docker.io/linuxserver/plex:latest
+podman pull --root /usr/lib/mediaserver/storage docker.io/linuxserver/jellyfin:latest
