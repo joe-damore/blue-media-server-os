@@ -9,6 +9,7 @@ VOLUME /var/lib/containers
 VOLUME /var/home/podman/.local/share/containers
 
 COPY /build /tmp/build
+COPY /rootfs /
 
 RUN mkdir -p /var/lib/alternatives && \
     /tmp/build/build.sh && \
