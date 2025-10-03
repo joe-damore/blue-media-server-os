@@ -2,6 +2,8 @@
 
 set -ouex pipefail
 
+mkdir -p /usr/lib/mediaserver/storage
+
 # Enable RPMFusion
 dnf5 -y install \
     https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
