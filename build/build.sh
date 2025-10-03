@@ -36,7 +36,6 @@ echo root:10000:5000 > /etc/subuid
 echo root:10000:5000 > /etc/subgid
 
 useradd mediaserver
-groupadd mediaserver
 
 systemctl enable podman.socket
 systemctl enable cockpit.socket
