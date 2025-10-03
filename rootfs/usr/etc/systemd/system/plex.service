@@ -1,0 +1,27 @@
+[Unit]
+Description=Plex media server
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Restart=on-failure
+TimeoutStopSec=70
+User=mediaserver
+
+ExecStart=/usr/bin/podman run \
+    --attach \
+    --name plex \
+    --pull never \
+    --volume %h/plex/config:/config,z \
+    --volume %h/plex/library:/library,z \
+    --device /dev/dri:/dev/dri \
+    --network host \
+    -e PUID=%U \
+    -e PGID=%G \
+
+    docker.io/linuxserver/plex:latest
+
+ExecStop=/usr/bin/podman stop -t 10 plex
+
+[Install]
+WantedBy=multi-user.target
