@@ -35,7 +35,9 @@ echo podman:10000:5000 > /etc/subgid
 echo root:10000:5000 > /etc/subuid
 echo root:10000:5000 > /etc/subgid
 
-useradd -r mediaserver
+# Create 'mediaserver' system user
+useradd -r -s /usr/sbin/nologin -m -d /var/lib/mediaserver mediaserver
+
 cat /etc/passwd
  # cat /usr/etc/passwd
 cat /usr/lib/passwd
