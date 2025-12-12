@@ -51,5 +51,5 @@ firewall-offline-cmd --add-service=cockpit
 firewall-offline-cmd --add-service=plex
 # firewall-offline-cmd --add-service=jellyfin
 
-podman pull --root /usr/lib/mediaserver/storage docker.io/linuxserver/plex:latest
+# podman pull --root /usr/lib/mediaserver/storage docker.io/linuxserver/plex:latest
 # podman pull --root /usr/lib/mediaserver/storage docker.io/linuxserver/jellyfin:latest
