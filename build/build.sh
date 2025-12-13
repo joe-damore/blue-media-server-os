@@ -2,7 +2,7 @@
 
 set -ouex pipefail
 
-# mkdir -p /usr/lib/mediaserver/storage
+mkdir -p /usr/lib/mediaserver/storage
 
 # Enable RPMFusion
 dnf5 -y install \
@@ -41,7 +41,7 @@ echo root:10000:5000 > /etc/subuid
 echo root:10000:5000 > /etc/subgid
 
 # Create 'mediaserver' system user
-# useradd -r -s /usr/sbin/nologin -m -d /var/lib/mediaserver mediaserver
+useradd -r -s /usr/sbin/nologin -m -d /var/lib/mediaserver mediaserver
 
 systemctl enable podman.socket
 systemctl enable cockpit.socket
