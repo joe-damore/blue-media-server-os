@@ -30,6 +30,7 @@ dnf5 -y install \
   fail2ban-firewalld \
   podman \
   podman-compose \
+  skopeo \
   tailscale
 
 dnf5 -y reinstall shadow-utils
@@ -51,5 +52,6 @@ firewall-offline-cmd --add-service=cockpit
 firewall-offline-cmd --add-service=plex
 # firewall-offline-cmd --add-service=jellyfin
 
+skopeo copy --preserve-digests docker://docker.io/linuxserver/plex:latest dir:/usr/lib/mediaserver/storage
 # podman pull --root /usr/lib/mediaserver/storage docker.io/linuxserver/plex:latest
 # podman pull --root /usr/lib/mediaserver/storage docker.io/linuxserver/jellyfin:latest
