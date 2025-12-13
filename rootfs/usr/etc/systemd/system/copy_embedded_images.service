@@ -1,0 +1,11 @@
+[Unit]
+Description=Copy embedded container images
+RequiresMountsFor=/usr
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/copy_embedded_images
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

@@ -1,5 +1,6 @@
 [Unit]
 Description=Plex media server
+After=copy_embedded_images.service
 Wants=network-online.target
 After=network-online.target
 
@@ -18,7 +19,6 @@ ExecStart=/usr/bin/podman run \
     --network host \
     -e PUID=%U \
     -e PGID=%G \
-
     docker.io/linuxserver/plex:latest
 
 ExecStop=/usr/bin/podman stop -t 10 plex

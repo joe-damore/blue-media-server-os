@@ -2,7 +2,8 @@
 
 set -ouex pipefail
 
-mkdir -p /usr/lib/mediaserver/storage
+# mkdir -p /usr/lib/mediaserver/storage
+mkdir -p /usr/lib/image-cache
 
 # Enable RPMFusion
 dnf5 -y install \
@@ -52,6 +53,7 @@ firewall-offline-cmd --add-service=cockpit
 firewall-offline-cmd --add-service=plex
 # firewall-offline-cmd --add-service=jellyfin
 
-skopeo copy --preserve-digests docker://docker.io/linuxserver/plex:latest dir:/usr/lib/mediaserver/storage
+/tmp/build/embed_image.sh docker.io/linuxserver/plex:latest
+# skopeo copy --preserve-digests docker://docker.io/linuxserver/plex:latest dir:/usr/lib/mediaserver/storage
 # podman pull --root /usr/lib/mediaserver/storage docker.io/linuxserver/plex:latest
 # podman pull --root /usr/lib/mediaserver/storage docker.io/linuxserver/jellyfin:latest
